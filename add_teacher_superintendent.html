@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Teacher or Superintendent</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://wallpaperaccess.com/full/3648424.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        /* Header Style */
+        header {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10; /* Ensure the header is above other elements */
+        }
+
+        header a {
+        color: #007bff; /* Blue color for the Home link */
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    header a:hover {
+        color: white; /* Change to white when hovered */
+    }
+
+        .container {
+            width: 350px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transform: scale(0);
+            opacity: 0;
+            animation: fadeInFromZero 1s ease-out forwards;
+            transition: box-shadow 0.3s ease;
+        }
+
+        @keyframes fadeInFromZero {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .container:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        button:active {
+            background-color: #004494;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Home Link -->
+    <header>
+        <a href="login.html">Home</a> <!-- Assuming "login.html" is the home or login page -->
+    </header>
+
+    <div class="container">
+        <h2>Add New User</h2>
+        <form id="userForm">
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="text" id="userId" name="userId" required>
+            </div>
+            <div class="form-group">
+                <label for="userName">User Name:</label>
+                <input type="text" id="userName" name="userName" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="userRole">Role:</label>
+                <select id="userRole" name="userRole" required>
+                    <option value="">Choose Role</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="superintendent">Superintendent</option>
+                </select>
+            </div>
+            <button type="submit">Add User</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Gather the form data
+            const userId = document.getElementById('userId').value;
+            const userName = document.getElementById('userName').value;
+            const password = document.getElementById('password').value;
+            const userRole = document.getElementById('userRole').value;
+
+            // Implement logic to add a new user here
+            // For now, we'll just display an alert
+            alert(`User Added! \nID: ${userId} \nName: ${userName} \nRole: ${userRole}`);
+        });
+    </script>
+
+</body>
+</html>
